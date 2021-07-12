@@ -56,6 +56,7 @@ from collections import deque
 def solution(maps):
     queue = deque([[0,0,1]])
     visited = [[0]*len(maps[0]) for _ in range(len(maps))]
+
     while queue:
         n = queue.popleft()                          #y,x
         if visited[n[0]][n[1]]==1:
@@ -68,10 +69,10 @@ def solution(maps):
             if n[1]-1>=0:                           #상
                 if maps[n[0]][n[1]-1]==1 and visited[n[0]][n[1]-1]==0:
                     queue.append([n[0],n[1]-1, count+1])
-            if n[1]+1<=len(maps[0])-1:                  #우
+            if n[1]+1<=len(maps[0])-1:              #우
                 if maps[n[0]][n[1]+1]==1 and visited[n[0]][n[1]+1]==0:
                     queue.append([n[0],n[1]+1, count+1])
-            if n[0]+1<=len(maps)-1:               #하
+            if n[0]+1<=len(maps)-1:                 #하
                 if maps[n[0]+1][n[1]]==1 and visited[n[0]+1][n[1]]==0:
                     queue.append([n[0]+1,n[1], count+1])
             if n[0]-1>=0:                           #좌

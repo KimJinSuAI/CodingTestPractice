@@ -14,7 +14,7 @@ def solution(a):
 
     stck = [stck[2], 1 ,a[-1]]
     if i!= len(a)-2:
-        for j in range(len(a)-2,i-1,-1):
+        for j in range(len(a)-2,i-1,-1):        # 우측부터 지역최소 찾으면 +1
             stck[1] = a[j]
             if stck[2] > a[j+1]:
                 stck[2] = a[j+1]

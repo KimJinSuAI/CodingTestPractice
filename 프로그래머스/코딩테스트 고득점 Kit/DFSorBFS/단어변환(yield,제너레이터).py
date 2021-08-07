@@ -27,13 +27,9 @@ def solution(begin, target, words):
         return answer
 
         
-print(solution("hit","cog",["hot", "dot", "dog", "lot", "log"]))
-print(solution("hit","cog",["hot", "dot", "dog", "lot", "log","cog"]))
-
 
 
 from collections import deque
-
 
 def get_adjacent(current, words):
     for word in words:
@@ -49,7 +45,7 @@ def get_adjacent(current, words):
             yield word
 
 
-def solution2(begin, target, words):
+def solution(begin, target, words):
     dist = {begin: 0}
     queue = deque([begin])
 
@@ -62,3 +58,6 @@ def solution2(begin, target, words):
                 queue.append(next_word)
 
     return dist.get(target, 0)
+print(solution("hit","cog",["hot", "dot", "dog", "lot", "log"]))
+print(solution("hit","cog",["hot", "dot", "dog", "lot", "log","cog"]))
+

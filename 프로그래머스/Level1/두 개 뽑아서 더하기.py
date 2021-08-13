@@ -8,4 +8,11 @@ def solution(numbers):
             if s not in answer:
                 answer.append(s)
     return sorted(answer)
+
+from itertools import combinations
+def solution(numbers):
+    answer = set()
+    for i in combinations(numbers,2):
+        answer.add(i[0]+i[1])
+    return sorted(answer)
 print(solution([5,0,2,7]))

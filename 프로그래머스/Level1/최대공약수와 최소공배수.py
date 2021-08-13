@@ -1,9 +1,9 @@
 def solution(n, m):
-    GCF = -1
+    GCD = -1
     LCM = -1
     for i,j in zip(range(1,n+1),range(1,m+1)):
         if n%i==0 and m%j==0:
-            GCF = i
+            GCD = i
 
     na=1
     ma=1
@@ -17,5 +17,5 @@ def solution(n, m):
             na+=1
             xn = n*na
     LCM = xn
-    return [GCF,LCM]
+    return [GCD,LCM]
 print(solution(3,12))

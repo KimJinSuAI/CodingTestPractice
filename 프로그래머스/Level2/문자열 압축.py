@@ -32,6 +32,6 @@ def solution(s):
         answer.append(len(append))
     return min(answer)
 
-# print(solution("aabbaccc"), 7)
+print(solution("aabbaccc"), 7)
 # print(solution("ababcdcdababcdcd"), 9)
-print(solution("a"))
+# print(solution("a"))

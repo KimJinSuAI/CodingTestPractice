@@ -1,16 +1,12 @@
 def solution(dartResult):
     answer = 0
     before = 0
-    beforeOption = 0
     now = 0
-    option = 0
     for i in range(len(dartResult)):
         if dartResult[i].isdigit():
-            if (dartResult[i-1]).isdigit():#
+            if (dartResult[i-1]).isdigit():
                 now *=10
                 continue
-            elif dartResult[i-1]!='*'or dartResult[-1]!='#':
-                beforeOption = 0
             answer+=before
             before = now
             now = int(dartResult[i])
@@ -21,10 +17,8 @@ def solution(dartResult):
         elif dartResult[i]=="*":
             before *=2
             now *=2
-            beforeOption=1
         elif dartResult[i]=="#":
             now *=-1
-            beforeOption=-1
     return answer+before+now
 
 print(solution("1S2D*3T"))

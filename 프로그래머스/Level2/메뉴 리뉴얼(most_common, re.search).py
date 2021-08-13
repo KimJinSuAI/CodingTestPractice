@@ -44,20 +44,20 @@ def solution(orders, course):
 
 
 
-import collections
-import itertools
+# import collections
+# import itertools
 
-def solution(orders, course):                                                       #다른사람 풀이
-    result = []
+# def solution(orders, course):                                                       #다른사람 풀이
+#     result = []
 
-    for course_size in course:
-        order_combinations = []
-        for order in orders:
-            order_combinations += itertools.combinations(sorted(order), course_size)
+#     for course_size in course:
+#         order_combinations = []
+#         for order in orders:
+#             order_combinations += itertools.combinations(sorted(order), course_size)
 
-        most_ordered = collections.Counter(order_combinations).most_common()
-        result += [ k for k, v in most_ordered if v > 1 and v == most_ordered[0][1] ]
+#         most_ordered = collections.Counter(order_combinations).most_common()
+#         result += [ k for k, v in most_ordered if v > 1 and v == most_ordered[0][1] ]
 
-    return [ ''.join(v) for v in sorted(result) ]
+#     return [ ''.join(v) for v in sorted(result) ]
 
 print(solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"],[2,3,4]))

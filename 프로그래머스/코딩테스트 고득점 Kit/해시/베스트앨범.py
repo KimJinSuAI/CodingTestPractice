@@ -15,10 +15,10 @@ def solution(genres, plays):
     sortedList = sorted(zip(genres,range(len(genres)),plays), reverse = True, key=operator.itemgetter(2))
     answer = []
     for i in selectedGenre:
-            for k in range(len(sortedList)):
-                if i==sortedList[k][0] and count[i]<2:
-                    answer.append(sortedList[k][1])
-                    count[i]=count[i]+1
+        for k in range(len(sortedList)):
+            if i==sortedList[k][0] and count[i]<2:
+                answer.append(sortedList[k][1])
+                count[i]=count[i]+1
 
 
     return answer

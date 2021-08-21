@@ -5,3 +5,5 @@ def rotate_90(m):
         for c in range(N):
             ret[c][N-1-r] = m[r][c]
     return ret
+
+print(rotate_90([[1,2],[3,4]]))

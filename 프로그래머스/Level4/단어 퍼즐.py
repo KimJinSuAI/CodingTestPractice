@@ -1,37 +1,34 @@
-import heapq
+from collections import deque
 def solution(strs, t):
     strs.sort(key = lambda x: len(x), reverse = True)
     visited = {}
-    Q = []
-    heapq.heappush(Q,[0,'',0])    #비용, 방문문자, 인덱스
+    Q = deque([])
+    Q.append([0,'',0])    #비용, 방문문자, 인덱스
     min = -1
     while Q:
-        cost, strg, index = heapq.heappop(Q)
+        cost, strg, index = Q.popleft()
         if visited.get(strg,False):
             continue
         visited[strg] = True
         if index == len(t):
-            if min==-1 or min>cost:
-                min = cost
+            return cost
 
+        target = t[index:]
         for str in strs:
-            if str == t[index:index+len(str)]:
-                heapq.heappush(Q,[cost+1,strg+str,index+len(str)])
+            if target.startswith(str):
+                Q.append([cost+1,strg+str,index+len(str)])
     return min
 
 from collections import deque
 def solution(strs, t):
-    distance = [float("inf")]*(len(t)+1)
-    Q = deque([])
-    for str in strs:
-        if t.startswith(str):
-            distance[len(str)] = 1
-            Q.append(len(str))
+    distance = [float("inf")]*(len(t)+1)            #dijkstra
+    Q = deque([0])
+    distance[0] = 0
     while Q:
-        idx = Q.popleft()
+        idx = Q.popleft()                           #노드는 길이다..
         target = t[idx:]
         for str in strs:
-            if target.startswith(str):
+            if target.startswith(str):              #갈 수 있다.. 간선이 있다.
                 tmp = idx+len(str)
                 if distance[tmp]>distance[idx]+1:
                     distance[tmp] = distance[idx]+1
@@ -39,7 +36,7 @@ def solution(strs, t):
     return distance[-1] if distance[-1]!=float("inf") else -1
 
 
-# print(solution(["ba","na","n","a"],"banana"))
+print(solution(["ba","na","n","a"],"banana"))
 print(solution(["app","ap","p","l","e","ple","pp"],"apple"))
 # print(solution(["ba","an","nan","ban","n"],"banana"))
 

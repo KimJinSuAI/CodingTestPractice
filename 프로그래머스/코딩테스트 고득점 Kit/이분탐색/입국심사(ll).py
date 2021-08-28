@@ -11,7 +11,7 @@ def solution(n, times):
             done+=mid//time
             if done>n:
                 break
-            
+
         if done<n:
             min = mid+1
         else:
@@ -20,7 +20,7 @@ def solution(n, times):
 
 
     return ans
-
+    
 print(solution(9,[3,3,3]), 9)
 print(solution(3, [1, 2, 3]), 2)
 print(solution(3, [1, 1, 1]), 1)

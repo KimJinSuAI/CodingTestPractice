@@ -68,3 +68,4 @@ def solution(words, queries):
 
     pre_processing(words)
     return [get_match_nums(query) for query in queries]
+print(solution(	["frodo", "front", "frost", "frozen", "frame", "kakao"], ["fro??", "????o", "fr???", "fro???", "pro?","?????"]))

@@ -1,26 +1,28 @@
+from collections import Counter
+from collections import deque
 def solution(gems):
-    answer = [0,0]
     kind = len(set(gems))
-    min = 0
-    max = len(gems)
-    while min<max:
-        mid = (min+max)//2
-        if kind == len(set(gems[:mid])):
-            max = mid
-        else:
-            min = mid+1
-    max = (min+max)//2
-    answer[1] = max
-    min = 0
-    maxtmp = max
-    while min<maxtmp:
-        mid = (min+maxtmp)//2
-        if kind==len(set(gems[mid:max])):
-            min = mid+1
-        else:
-            maxtmp = mid
-    answer[0] = min
-        
+    l, r = 0, 0
+    currentList = deque([gems[0]])
+    answer = [0,100000]
+    while r!=len(gems):
+        nowCounter = Counter(currentList)
+        while len(nowCounter)!= kind:
+            r+=1
+            if r==len(gems):
+                return answer
+            currentList.append(gems[r])
+            nowCounter[gems[r]] = nowCounter.get(gems[r],0)+1
+
+        while len(nowCounter)==kind:
+            tmp = currentList.popleft()
+            if nowCounter[tmp]==1:
+                del nowCounter[tmp]
+            else:
+                nowCounter[tmp]-=1
+            l+=1
+        if answer[1]-answer[0]>r+1-l:
+            answer = [l,r+1]
     return answer
 
 

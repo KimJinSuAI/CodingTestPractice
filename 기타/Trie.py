@@ -24,4 +24,4 @@ def solution(strList):
         trie.insert(str)
     return trie.root.next["a"].next
 
-print(solution(["aa","bb"]))
+print(solution(["aa","bb","ab"]))

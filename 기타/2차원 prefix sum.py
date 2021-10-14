@@ -1,3 +1,4 @@
+#2차원 prefixSum
 class prefixSum:
     def __init__(self, data):
         self.data = [[0] * (len(data[0])+1) for _ in range(len(data)+1)]

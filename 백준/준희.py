@@ -1,21 +1,10 @@
-from collections import deque
-import sys
-input = sys.stdin.readline
-s = deque(input()[:-1]) 
-ans = []
-while s[0]==s[-1]:
-    s.append(s.popleft())
-
-cnt = 1
-before = s[0]
-for i in range(1,len(s)):
-    if s[i]==before:
-        cnt+=1
-    else:
-        ans.append(cnt)
-        cnt = 1
-        before = s[i]
-ans.append(cnt)
-
-
-print(sorted(ans))
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age
+    @property
+    def age(self):
+        return self.__age
+I = Person("james",15)
+print(I.name)
+print(I.age)

@@ -17,14 +17,14 @@ def union(x,y):
         parent[y] = x
 
 A = [0]+list(map(int,input().split()))
-for i in range(N):
+for i in range(M):
     x,y = map(int,input().split())
     union(x,y)
 
 money = A[find(1)]
 for i in range(2,N+1):
     if find(1)!=find(i):
-        money+=find(i)
+        money+=A[find(i)]
         union(1,i)
 if money<=k:
     print(money)

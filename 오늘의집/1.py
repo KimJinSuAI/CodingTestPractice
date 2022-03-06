@@ -9,5 +9,6 @@ def f(a,k):
         tmp+=a[i]
     
     return tmp
+    
 
 print(f([1,2,7,4,5], 3))
